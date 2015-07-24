@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <title>Zoom To</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.7.0/ol.css" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" type="text/css">
+
+</head>
+<body>
+  <div class="row-fluid">
+    <div class="span12">
+        <form role="search" style="position: absolute; left: 40px; top: 10px; width: 300px;" id="zoomToForm">
+          <div class="form-group">
+            <div class="input-group" id="zoom-input-group">
+              <input class="form-control" id="coordInput" style="box-shadow: 0px 5px 5px #808080; z-index: 9999" type="text" placeholder="Search by coordinates">
+              <div class="input-group-btn">
+                <button id="zoomButton" class="btn btn-primary" style="box-shadow: 0px 6px 5px #808080;" type="button"><i class="glyphicon glyphicon-search"></i></button>
+              </div>
+            </div>
+          </div>
+        </form>
+      <div id="map" class="map"></div>
+    </div>
+  </div>
+
+</div>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.7.0/ol.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.1/toastr.min.js"></script>
+  <script>
+
+    var mapView = new ol.View({
+      center: [0, 0],
+      zoom: 2
+    });
+    var mapZoom = new ol.Map({
+      layers: [
+        new ol.layer.Tile({
+          source: new ol.source.OSM()
+        })
+      ],
+      controls: ol.control.defaults({
+        attributionOptions: ({
+          collapsible: false
+        })
+      }),
+      target: 'map',
+      view: mapView
+    });
+
+  </script>
+  <script src="js/mgrs.js"></script>
+  <script src="js/zoom.js"></script>
+</body>
+</html>
