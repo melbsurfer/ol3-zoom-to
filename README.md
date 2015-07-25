@@ -2,6 +2,8 @@
 
 An Openlayers 3 module for 'zooming' to a particular location on the map based on input via Decimal Degrees, Degrees Minutes Seconds, or Military Grid Reference System.
 
+[DEMO](http://plnkr.co/edit/eacYfgt7ysNNV4htOpCA?p=preview)
+
 ---
 
 ##### Dependencies: #####
