@@ -39,8 +39,8 @@ var ZoomTo = (function () {
     // Regular expression for the input types
     var dRegExp = /^\s*(\-?\d{1,2})\s*\°?\s*([NnSs])?\s*\,?\s*(\-?\d{1,3})\s*\°?\s*([WwEe])?\s*$/;
     var ddRegExp = /^\s*(\-?\d{1,2}\.\d*)\s*\°?\s*([NnSs])?\s*\,?\s*(\-?\d{1,3}\.\d*)\s*\°?\s*([WwEe])?\s*$/
-    var dmsRegExp = /^(\d{1,2})\s?\°?\s?\:?\s?(\d{1,2})\s?\'?\s?\:?\s?(\d{1,2})(\.\d*)?\s?\"?\s*([NnSs])\s?(\d{1,3})\s?\°?\s?\:?\s?(\d{1,2})\s?\'?\s?\:?\s?(\d{1,2})(\.\d*)?\s?\"?\s*([EeWw])$/;
-    var mgrsRegExp = /^(\d{1,2})\s?([A-Za-z])\s?([A-Za-z])\s?([A-Za-z])\s?(\d{1,5})\s?(\d{1,5})$/;
+    var dmsRegExp = /^\s*(\d{1,2})\s?\°\s*?\s?\:?\s?(\d{1,2})\s?\'\s*?\s?\:?\s?(\d{1,2})(\.\d*)?\s?\"?\s*([NnSs])\s*(\d{1,3})\s?\°\s*?\s?\:?\s?(\d{1,2})\s?\'\s*?\s?\:?\s?(\d{1,2})(\.\d*)?\s?\"?\s*([EeWw])\s*$/;
+    var mgrsRegExp = /^\s*(\d{1,2})\s*([A-Za-z])\s*([A-Za-z])\s*([A-Za-z])\s*(\d{1,5})\s*(\d{1,5})\s*$/;
 
     // Bind events
     $zoomButton.on("click", cycleRegExs);
@@ -54,13 +54,13 @@ var ZoomTo = (function () {
     };
 
     function getNum(val) {
-        console.log('val = ' + typeof val);
+        //console.log('val = ' + typeof val);
         if (typeof val === 'undefined'){
-            console.log('undefined!');
+            //console.log('undefined!');
             return "";
         }
         else if (isNaN(val)){
-            console.log('isNaN!');
+            //console.log('isNaN!');
             return "";
         }
         return val;
@@ -70,6 +70,9 @@ var ZoomTo = (function () {
 
         var coordInput = $coordInput.val();
         console.log(coordInput);
+        console.log(coordInput.length);
+        coordInput.trim();
+        console.log(coordInput.length);
 
         if (coordInput.match(ddRegExp)) {
 
