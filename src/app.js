@@ -1,3 +1,5 @@
+// Set up the ol3 map
+
 var mapView = new ol.View({
     center: [0, 0],
     zoom: 2
